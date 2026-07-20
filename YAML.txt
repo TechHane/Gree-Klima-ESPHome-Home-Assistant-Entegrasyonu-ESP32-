@@ -1,0 +1,40 @@
+# Board: uPesy ESP32 Wroom DevKit
+# Definition: definitions/boards/upesy_wroom/manifest.yaml
+
+esphome:
+  name: gree-klima-wifi
+  friendly_name: Gree_Klima_WiFi
+
+esp32:
+  variant: esp32
+
+logger:
+
+api:
+  encryption:
+    key: "*******************************"
+
+ota:
+  - platform: esphome
+
+wifi:
+  ssid: Your_SSID
+  password: Your Password
+  ap:
+    ssid: Gree_Klima_WiFi Fallback Hotspot
+    password: "*******************************"
+
+captive_portal:
+uart:
+  tx_pin: GPIO17
+  rx_pin: GPIO16
+  baud_rate: 4800
+  parity: EVEN
+
+external_components:
+  - source: github://gekkehenkie11/esphome_gree_ac
+    components: [ sinclair_ac ]
+
+climate:
+  - platform: sinclair_ac
+    name: "Gree Klima"
