@@ -1,40 +1,45 @@
-# Board: uPesy ESP32 Wroom DevKit
-# Definition: definitions/boards/upesy_wroom/manifest.yaml
-
 esphome:
-  name: gree-klima-wifi
-  friendly_name: Gree_Klima_WiFi
+  name: gree-klima
+  platform: ESP32
+  board: esp32dev
 
-esp32:
-  variant: esp32
-
-logger:
-
-api:
-  encryption:
-    key: "*******************************"
-
-ota:
-  - platform: esphome
-
+# Wi-Fi ağ bilgilerinizi buraya girin
 wifi:
-  ssid: Your_SSID
-  password: Your Password
+  ssid: "WIFI_AGININ_ADI"
+  password: "WIFI_SIFRESI"
   ap:
-    ssid: Gree_Klima_WiFi Fallback Hotspot
-    password: "*******************************"
+    ssid: "Gree-Klima Fallback"
+    password: "kurulum_sifresi"
 
-captive_portal:
+# UART iletişiminin klimayla çakışmaması için USB loglarını kapatıyoruz
+logger:
+  baud_rate: 0 
+
+# Home Assistant bağlantısı için API aktif
+api:
+  password: ""
+
+# OTA (Kablosuz) güncelleme ayarları
+ota:
+  password: ""
+
+# Cihazın IP adresine girildiğinde açılacak yerel kontrol paneli
+web_server:
+  port: 80
+
+# ESP32 UART2 Pin Bağlantıları
 uart:
   tx_pin: GPIO17
   rx_pin: GPIO16
   baud_rate: 4800
   parity: EVEN
 
+# Topluluk yapımı Gree (Sinclair) protokol bileşeni
 external_components:
   - source: github://gekkehenkie11/esphome_gree_ac
     components: [ sinclair_ac ]
 
+# Kontrol edilecek Klima (Climate) objesi
 climate:
   - platform: sinclair_ac
-    name: "Gree Klima"
+    name: "Salon Kliması"
