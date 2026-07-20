@@ -21,10 +21,14 @@ Donanım Notu (Lojik Seviye): ESP32 pinleri 5V toleranslı olduğu için doğrud
 Klimanın TX pininden ESP32'nin GPIO16 (RX) pinine gelen sinyal hattına basit bir gerilim bölücü (seri 10k, GND'ye 20k direnç) eklenerek 3.3V seviyesine düşürülmesi tavsiye edilir.
 
 🚀 Kullanım
-Kodu derleyip ESP32'ye yükleyin (İlk yüklemede bilgisayardan, sonrakilerde Wi-Fi üzerinden OTA ile güncelleyebilirsiniz).
+Kodu derleyip ESP32'ye yükleyin.
+
 Kartı klimaya bağlayıp klimaya enerji verin.
+
 Cihaz Home Assistant ağına otomatik olarak düşecek ve climate entegrasyonu olarak belirecektir.
+
 Doğrudan tarayıcı üzerinden kontrol etmek isterseniz, ESP32'nin aldığı yerel IP adresini tarayıcınıza yazmanız yeterlidir.
+
 
 ## 👏 Teşekkür ve Atıf (Credits)
 Bu projedeki klima haberleşme altyapısı, topluluk tarafından geliştirilen [gekkehenkie11/esphome_gree_ac](https://github.com/gekkehenkie11/esphome_gree_ac) kütüphanesini temel almaktadır. Gree/Sinclair protokolünün tersine mühendislikle çözülmesi ve ESPHome entegrasyonu için asıl geliştiriciye teşekkür ederim.
