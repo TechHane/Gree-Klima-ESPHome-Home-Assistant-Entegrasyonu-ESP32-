@@ -8,10 +8,14 @@ ESP32 Geliştirme Kartı
 4-pin Jumper Kablo
 Klima anakartından çıkan 4 tel sırasıyla: +5VDC RX TX GND Aşağıdaki sıralamayla ESP32'ye bağlayın.
 
-+5VDC	      --> ESP 32'deki VIN / 5V	
++5VDC	  --> ESP 32'deki VIN / 5V	
+
 Klima RX  -->	GPIO17 (TX2)
+
 Klima TX  -->	GPIO16 (RX2)
+
 GND       -->	GND	Ortak toprak bağlantısı.
+
 
 Donanım Notu (Lojik Seviye): ESP32 pinleri 5V toleranslı olduğu için doğrudan bağlantı çalışmaktadır. Ancak endüstriyel uzun ömürlülük ve kartı korumak adına,
 Klimanın TX pininden ESP32'nin GPIO16 (RX) pinine gelen sinyal hattına basit bir gerilim bölücü (seri 10k, GND'ye 20k direnç) eklenerek 3.3V seviyesine düşürülmesi tavsiye edilir.
